@@ -1,13 +1,13 @@
 # Model-Agnostic Meta-Learning
-
+import random
 
 class MAML():
-    def __init__(self, alpha, beta, K, dist, theta = 1.0):
+    def __init__(self, alpha, beta, K, dist, theta = random.random()):
         self.C = None
         self.alpha = alpha
         self.beta = beta
-        self.theta = theta #randomly initialize parameters (or can import pretrained parameters)
-        self.K = K
+        self.theta = theta
+        self.K = K #number of examples from training set (1 for one-shot, some for few-shot, etc)
         self.dist = dist #distribution over tasks
     
     def train(self, num_episodes = 50):
